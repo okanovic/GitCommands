@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GIT COMMANDS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        td:first-child{font-weight:600 }
+        td:nth-child(3){width: 400px}
+        tr:nth-child(2n+1){background-color: floralwhite 
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr style="background: none;">
+                    <th>Git task</th>
+                    <th>Notes</th>
+                    <th>Git commands
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tell Git who you are</td>
+                    <td>
+                        Configure the author name and email address to be used with your commits.
+                        Note that Git strips some characters (for example trailing periods) from user.name
+                    </td>
+                    <td>
+                        git config --global user.name "Okan TOPER" <br>
+                        git config --global user.email okan@gmail.com
+                    </td>
+                </tr>
+                <tr>
+                    <td>Create a new local repository</td>
+                    <td></td>
+                    <td>git init</td>
+                </tr>
+                <tr>
+                    <td>Check out a repository</td>
+                    <td>
+                        Create a working copy of a local repository:
+                        <hr>
+                        For a remote server, use:
+                    </td>
+                    <td>
+                        git clone /path/to/repository
+                        <hr>
+                        git clone username@host:/path/to/repository
+                    </td>
+                </tr>
+                <tr>
+                    <td>Add files</td>
+                    <td>Add one or more files to staging (index):
+                    </td>
+                    <td>
+                        git add "filename"
+                        <hr>
+                        git add *
+                    </td>
+                </tr>
+                <tr>
+                    <td>Commit</td>
+                    <td>
+                        Commit changes to head (but not yet to the remote repository):
+                        <hr>
+                        Commit any files you've added with git add, and also commit any files you've changed since then:
+
+                    </td>
+                    <td>
+                        git commit -m "Commit message"
+                        <hr>
+                        git commit -a
+                    </td>
+                </tr>
+                <tr>
+                    <td>Push</td>
+                    <td>
+                        Send changes to the master branch of your remote repository:
+                    </td>
+                    <td>
+                        git push origin master
+                    </td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>
+                        List the files you've changed and those you still need to add or commit:
+                    </td>
+                    <td>
+                        git status
+                    </td>
+                </tr>
+                <tr>
+                    <td>Connect to a remote repository</td>
+                    <td>
+                        If you haven't connected your local repository to a remote server, add the server to be able to
+                        push to it:
+                        <hr>
+                        List all currently configured remote repositories:
+                    </td>
+                    <td>
+                        git remote add origin "server" 
+                        <br>
+                        <br>
+                        <hr>
+                        git remote -v
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Branches
+                    </td>
+                    <td>
+                        Create a new branch and switch to it:
+                        <hr>
+                        Switch from one branch to another:
+                        <hr>
+                        List all the branches in your repo, and also tell you what branch you're currently in:
+                        <hr>
+                        Delete the feature branch:
+                        <hr>
+                        Push the branch to your remote repository, so others can use it:
+                        <hr>
+                        Push all branches to your remote repository:
+                        <hr>
+                        Delete a branch on your remote repository:
+                    </td>
+                    <td>
+                        git checkout -b "branchname"
+                        <hr>
+                        git checkout "branchname"
+                        <hr>
+                        git branch <br><br> <hr>
+                        git branch -d "branchname"
+                        <hr>
+                        git push origin "branchname"
+                        <hr>
+                        git push --all origin
+                        <hr>
+                        git push origin :"branchname"
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Update from the remote repository
+                    </td>
+                    <td>
+                        Fetch and merge changes on the remote server to your working directory:
+                        <hr>
+                        To merge a different branch into your active branch:
+                        <hr>
+                        View all the merge conflicts: <br>
+                        View the conflicts against the base file: <br>
+                        Preview changes, before merging:
+                        <hr>
+                        After you have manually resolved any conflicts, you mark the changed file:
+                    </td>
+                    <td>
+                        git pull
+                        <hr>
+                        git merge "branchname"
+                        <hr>
+                        git diff <br>
+                        git diff --base "filename" <br>
+                        git diff "sourcebranch" "targetbranch" <br>
+                        <hr>
+                        git add "filename"
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tags</td>
+                    <td>
+                        You can use tagging to mark a significant changeset, such as a release:
+                        <hr>
+                        CommitId is the leading characters of the changeset ID, up to 10, but must be unique. Get the ID
+                        using:
+                        <hr>
+                        Push all tags to remote repository:
+                    </td>
+                    <td>
+                        git tag 1.0.0 "commitID"
+                        <hr> 
+                        git log <br> <br>
+                        <hr>
+                        git push --tags origin
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Undo local changes
+                    </td>
+                    <td>
+                        If you mess up, you can replace the changes in your working tree with the last content in head:
+                        <br>
+                        Changes already added to the index, as well as new files, will be kept.
+                        <hr>
+                        Instead, to drop all your local changes and commits, fetch the latest history from the server
+                        and point your local master branch at it, do this:
+
+                    </td>
+                    <td>git checkout -- "filename"<br>
+                            git fetch origin <br> <br>
+                        <hr>
+                            git reset --hard origin/master
+                    </td>
+                </tr>
+                <tr>
+                    <td>Search</td>
+                    <td>Search the working directory for foo(): </td>
+                    <td>git grep "foo()"
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+
+</html>
