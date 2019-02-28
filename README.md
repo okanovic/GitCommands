@@ -1,2 +1,1 @@
 # GitCommands
-Git commman
